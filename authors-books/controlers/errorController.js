@@ -53,8 +53,6 @@ module.exports = (err, req, res, next) => {
     error.msg = err.message;
     if (error.name === 'CastError') error = handleCastErrorDB(error);
     if (error.code === 11000) error = handleDuplicateDB(error);
-    console.log(err.message);
-    console.log(error.msg);
     sendErrorProd(error, res);
   }
 };
