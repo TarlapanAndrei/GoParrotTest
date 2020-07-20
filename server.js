@@ -25,3 +25,19 @@ const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   console.log('Server listening on');
 });
+
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  console.log('unhandledRejection the server is gona be closed');
+  server.close(() => {
+    process.exit(1);
+  });
+});
+
+process.on('uncaughtException', (err) => {
+  console.log(err.name, err.message);
+  console.log('uncaughtException the server is gona be closed');
+  server.close(() => {
+    process.exit(1);
+  });
+});
