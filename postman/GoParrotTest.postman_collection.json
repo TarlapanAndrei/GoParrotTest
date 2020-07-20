@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "2a0f243c-385d-485c-a999-ba2e483fd164",
+		"name": "GoParrotTest",
+		"description": "The GoParrotTest APi containts endpoints for Authors and Books.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "AddAuthor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Andrei\",\r\n    \"lastName\": \"Varan\",\r\n    \"birthday\": \"1983/10/16\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/authors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors"
+							]
+						},
+						"description": "Use to add a new author.\r\nrequired name, lastname and birthday"
+					},
+					"response": []
+				},
+				{
+					"name": "All Authors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/authors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors"
+							]
+						},
+						"description": "Use the end point to get all the Authors"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAuthor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Victoria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f117c956f89663fdcf09d04",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f117c956f89663fdcf09d04"
+							]
+						},
+						"description": "Use the end point to up date Author name, lastName and birthday"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAuthor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f1018ae2a42323b0cd24d67",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f1018ae2a42323b0cd24d67"
+							]
+						},
+						"description": "Use the end point to Delete an author by ID in req.params"
+					},
+					"response": []
+				},
+				{
+					"name": "get an Author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f1085a7dcf6893eb8695ae2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f1085a7dcf6893eb8695ae2"
+							]
+						},
+						"description": "use to get an Author bi Id"
+					},
+					"response": []
+				}
+			],
+			"description": "You can get all Authors, create new ones and edit and delet authors.\r\nname and lastName are required, maxlength = 40.\r\nit is imposible to create a second author with the same name, lastName and birthday.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "76e739a0-0685-447e-859a-5587a1d0a178",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df67a93c-a296-44a1-8efa-b70d64579d03",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Create New Book on Author",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Test Validation 7\",\r\n    \"publisheAt\": \"2020-02-03\",\r\n    \"iban\": \"AT483200000012345864\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f1085a7dcf6893eb8695ae2/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f1085a7dcf6893eb8695ae2",
+								"books"
+							]
+						},
+						"description": "Use the end point to create a book \r\nAuthor Id is on req.params"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/books/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								""
+							]
+						},
+						"description": "Use the end point to get all books of the base"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Books by author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f10192d2a42323b0cd24d68/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f10192d2a42323b0cd24d68",
+								"books"
+							]
+						},
+						"description": "Use the end point to get all the Author's books"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a book on specific author",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f1085a7dcf6893eb8695ae2/books/5f1088996c9f482b045ab023",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f1085a7dcf6893eb8695ae2",
+								"books",
+								"5f1088996c9f482b045ab023"
+							]
+						},
+						"description": "Use the end point to delete a book based on Author ID require author id in params"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a book with no specific author",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/books/5f1088ab6c9f482b045ab024",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"5f1088ab6c9f482b045ab024"
+							]
+						},
+						"description": "Use the end point to Delete a book, no need author id in params"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Book of an author using author ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"ultimate test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f1085a7dcf6893eb8695ae2/books/5f10a8e98cd62a3df02f3081",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f1085a7dcf6893eb8695ae2",
+								"books",
+								"5f10a8e98cd62a3df02f3081"
+							]
+						},
+						"description": "Use the end point to update Book title, publisheAt, iban"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"ultimate test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/authors/5f1085a7dcf6893eb8695ae2/books/5f10a8e98cd62a3df02f3081",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"5f1085a7dcf6893eb8695ae2",
+								"books",
+								"5f10a8e98cd62a3df02f3081"
+							]
+						},
+						"description": "Use the end point to get a book using the author id and book id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"ultimate test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/books/5f10a8e98cd62a3df02f3081",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"5f10a8e98cd62a3df02f3081"
+							]
+						},
+						"description": "Use the end point to Get a book using Book id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Book",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"ultimate test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/books/5f10a8e98cd62a3df02f3081",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"5f10a8e98cd62a3df02f3081"
+							]
+						},
+						"description": "Use the end point to get a book using book Id"
+					},
+					"response": []
+				}
+			],
+			"description": "You can get all books, create new ones, and edit and delete books.\r\ntitle is required and max length is 60.\r\niban is required and has a validator for chesk if is real.\r\nit is inposible to duble the same book with the same author.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "41b19679-34ed-4e38-b9e5-1a9aa6219773",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "505b4e41-faec-4e2a-b1e0-0b8ea7675a8c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "76cb6af5-3432-46ef-97e1-2feeda6a1404",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "88bfab9d-5f8b-48de-ac6f-da239c5e450d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
