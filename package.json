@@ -20,7 +20,7 @@
     "mongoose-iban": "^1.0.2",
     "morgan": "^1.10.0",
     "node-mocks-http": "^1.8.1",
-    "validator": "^13.1.1"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
