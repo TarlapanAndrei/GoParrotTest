@@ -15,7 +15,7 @@
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "eslint-plugin-react-hooks": "^4.0.8",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.9.24",
     "mongoose-iban": "^1.0.2",
     "morgan": "^1.10.0",
